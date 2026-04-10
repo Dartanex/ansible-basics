@@ -1,0 +1,13 @@
+---
+- name: Ansible Facts playbook
+  hosts: localhost
+  gather_facts: true
+
+  tasks: 
+    - name: Define custom fact
+      ansible.builtin.set_fact:
+        server_role: "frontend"
+    
+    - name: Use custom and built-in fact
+      ansible.builtin.debug:
+        msg: 'The {{ ansible_hostname }} is assigned the role: {{ server_role }}'
