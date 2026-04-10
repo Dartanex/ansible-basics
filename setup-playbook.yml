@@ -1,0 +1,16 @@
+---
+- name: Basic System Setup
+  hosts: web
+  become: true
+  tasks: 
+    - name: update all security-related packages
+      ansible.builtin.packages:
+        name: '*'
+        state: latest
+        security: true
+
+    - name: Create a new User
+      ansible.builtin.user:
+        name: daniel
+        state: present
+        create_home: true
