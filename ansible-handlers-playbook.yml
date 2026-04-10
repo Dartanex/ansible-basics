@@ -14,3 +14,17 @@
     ansible.builtin.service:
       name: httpd
       state: restarted
+
+# Handlers only run or trigger at the end of the playbook
+
+# tasks:
+# - name: Ensure httpd package is present
+#   ansible.builtin.package:
+#     name: httpd
+#     state: latest
+#   notify: restart httpd
+# - name: Standarized index.html file
+#   ansible.builtin.copy:
+#     content: "This is my index.html file for {{ ansible_host }}"
+#     dest: /var/www/html/index.html
+#   notify: restart httpd
