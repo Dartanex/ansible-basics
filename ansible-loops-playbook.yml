@@ -1,0 +1,17 @@
+---
+- name: Ensure Users
+  hosts: node1
+  become: true
+
+  tasks:
+    - name: Ensure user is present
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: present
+    loop:
+      - dev_user
+      - qa_user
+      - prod_user
+
+# Loops are used to avoid using repeating the same tasks for multiple items
+# to be cleaner nad more efficient.

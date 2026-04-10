@@ -16,6 +16,7 @@
       state: restarted
 
 # Handlers only run or trigger at the end of the playbook
+# also we want to use notify and handler to run task only when changes occurred
 
 # tasks:
 # - name: Ensure httpd package is present
