@@ -1,0 +1,16 @@
+---
+- name: variable playbook test
+  hosts: localhost
+
+  tasks: 
+  - name: Ensure httpd package is present
+    ansible.builtin.package:
+      name: httpd
+      state: latest
+    notify: restart_httpd
+
+  handlers:
+  - name: Restart_httpd
+    ansible.builtin.service:
+      name: httpd
+      state: restarted
